@@ -16,7 +16,7 @@ loginButton.onclick = function(){
 
     if (user == "admin" && pass == "admin") {
         alert("You have successfully logged in.");
-        fetch('gameSelect.html');
+        window.location.assign("gameSelect.html");
     } else {
         alert(loginErrorMsg);
     }
