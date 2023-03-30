@@ -1,9 +1,7 @@
-//var login = document.getElementById("login"); 
 //Needed Global const for the page to function properly. - Taitt
 const loginButton = document.getElementById("login-submit");
+const login = document.getElementById("login"); 
 var loginErrorMsg = "Invalid Credentials. Try Again.";
-var username = document.getElementById("username").value;
-var password = document.getElementById("password-field").value;
 
 //Login Button Function, for now checks if their user and pass is admin then allows login.
 //
