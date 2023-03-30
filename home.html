@@ -1,9 +1,28 @@
-<!DOCTYPE html>
-    <html>
-        <body>
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Game Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="login.js"></script>
+</head>
 
-            <h1>My First Heading</h1>
-            <p>My first paragraph.</p>
+<body>
+  <main id="main">
+    <h1>Login</h1>
+    
+    <div id="login-error-message-box">
+      <p id="login-error-message">Invalid username <span id="error-message-line2">and/or password</span></p>
+    </div>
+    
+    <form id="login">
+      <input type="text" id="username" class = "login-form" placeholder= "Username">
+      <input type="hidden" name="password" id="password-field" class= "login-form" placeholder="Password">
+      <input type= "submit"  value= "Login" id="login-submit">
+    </form>
+  
+  </main>
+</body>
 
-        </body>
-    </html>
+</html>
