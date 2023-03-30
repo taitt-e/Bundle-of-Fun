@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Game Login</title>
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="login.js"></script>
 </head>
 
@@ -12,9 +12,17 @@
   <main id="main">
     <h1>Login</h1>
     
-    <input type="text" id="username" class = "login-form" placeholder= "Username">
-    <input type="hidden" id="password-field" class= "login-form" placeholder="Password">
-    <input type="button" value= "Login" id="login-submit">
+    <form id="login">
+      <div>
+        <input type="text" id="username" class = "login-form" placeholder= "Username">
+      </div>
+      <div>
+        <input type="hidden" id="password-field" class= "login-form" placeholder="Password">
+      </div>
+      <div>
+        <input type="submit" id="login-submit">
+      </div>
+      </form>
   
   </main>
 </body>
