@@ -21,6 +21,7 @@ loginButton.onclick = function(){
         
         //Redirect to gameSelect.html - Taitt
         window.location.replace("gameSelect.html");
+        return false;
     } else {
         alert(loginErrorMsg);
     }
