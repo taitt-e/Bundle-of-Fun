@@ -15,12 +15,15 @@ loginButton.onclick = function(){
     console.log("Username is: " + user);
     console.log("Password is: " + pass);
 
+    //Read from the database file here to see if their username and password are in the database - Taitt
     if (user == "admin" && pass == "admin") {
         alert("You have successfully logged in.");
         
         //Redirect to gameSelect.html - Taitt
-        //window.location.assign("gameSelect.html");
+        window.location.href = "gameSelect.html";
     } else {
         alert(loginErrorMsg);
     }
 }
+
+//Add a separate register function here that writes to the file then logs them in - Taitt
