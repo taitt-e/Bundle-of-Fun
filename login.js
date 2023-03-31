@@ -17,10 +17,10 @@ loginButton.onclick = function(){
 
     //Read from the database file here to see if their username and password are in the database - Taitt
     if (user == "admin" && pass == "admin") {
-        //alert("You have successfully logged in.");
+        alert("You have successfully logged in.");
         
         //Redirect to gameSelect.html - Taitt
-        window.location.href = "gameSelect.html";
+        window.location.replace("gameSelect.html");
     } else {
         alert(loginErrorMsg);
     }
