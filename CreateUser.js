@@ -1,11 +1,16 @@
-var password = document.getElementById("pwd");
-var confirmPassword = document.getElementById("pwd_confirm");
+function validatePassword(form){
+	let password = form.pwd.value;
+	let confirmPassword = form.pwd_confirm.value;
 
-function validatePassword(){
-    if(password.value != confirmPassword.value){
-        confirmPassword.setCustomValidity("Passwords do not match.")
+	if(password.value == ''){
+  	    password.setCustomValidity("Please enter password");
+    }else if(confirmPassword.value == ''){
+        confirmPassword.setCustomValidity("Please confirm your password");
+    }else if(password != confirmPassword){
+        alert("Passwords do not match! Please try again.");
+        return false;
+    }else{
+        alert("Password Match!");
+        return true;
     }
 }
-
-password.onchange = validatePassword;
-confirmPassword.onkeyup = validatePassword;
