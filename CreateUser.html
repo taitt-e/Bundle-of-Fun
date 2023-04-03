@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="CreateUser.css"/>
+  </head>
+    <body>
+          <fieldset>
+              <fieldset>
+                  <legend>Create Username</legend>
+                  <label for="usr">Username: </label>
+                  <input type="text" id="usr" placeholder="username" size= 25 required><br>
+              </fieldset>
+              <fieldset>
+                  <legend>Create Password</legend>
+                  <label for="pwd">Password: </label>
+                  <input type="password" id="pwd" placeholder="password" size= 25 required>
+                  <input type="password" id="pwd_confirm" placeholder="confirm password" size= 25 required>
+              </fieldset>
+              <label id = "errMsg"></label>
+              <br><br><button type="submit" id= "submitBtn" >Confirm</button>
+              <script src="CreateUser.js"></script>
+          </fieldset>
+    </body>
+</html>
