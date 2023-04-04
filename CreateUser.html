@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="CreateUser.css"/>
+  </head>
     <body>
-            <form onSubmit = "return validatePassword(this)">
+            <form id="userForm" onSubmit = "return validatePassword(this)">
                 <fieldset>
                     <fieldset>
                         <legend>Create Username</legend>
@@ -18,5 +22,6 @@
                 </fieldset>
             </form>
             <script src="CreateUser.js"></script>
+            <script src="database.js"></script>
     </body>
 </html>
