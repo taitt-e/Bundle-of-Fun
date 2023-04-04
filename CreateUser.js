@@ -11,6 +11,7 @@ function validatePassword(form){
         return false;
     }else{
         alert("Password Match!");
+	addNewUserToDB();
         return true;
     }
 }
