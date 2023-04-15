@@ -20,7 +20,7 @@ class GameInterfaceTemplate{
 }
 */
 //"Base" Classes applied in "Assistant" CLasses
-class PlayerObj{
+class PlayerObjTemplate{
     //Needed constructor to function.
     constructor(x,y,dx,dy, graphicConst){
         this.x = x;
@@ -30,7 +30,7 @@ class PlayerObj{
         this.graphicConst = graphicConst;
     }
 }
-class Object{
+class ObjectTemplate{
     //Needed Constructor to function
     constructor(x,y,dx,dy, graphicConst){
         this.x = x;
@@ -41,7 +41,7 @@ class Object{
     }
 }
 //"Assistant" Classes used by the controller Class.
-class UserInterface{
+class UserInterfaceTemplate{
     constructor(gameInterface){
         //Used to stylize the user interface.
         this.userInterface = gameInterface;
@@ -50,7 +50,7 @@ class UserInterface{
         throw new Error("Abstract Method has no implementation");
     }
 }
-class Graphics{
+class GraphicsTemplate{
     constructor(gameInterface, playerObj, object){
         //Used to stylize the graphics
         this.gameInterface = gameInterface;
@@ -62,14 +62,14 @@ class Graphics{
         throw new Error("Abstract Method has no implementation");
     }
 }
-class GameLogic{
+class GameLogicTemplate{
     constructor(playerObj, object){
         //Needed objects for game to function
         this.playerObj = playerObj;
         this.object = object;
     }
 }
-class UserControl{
+class UserControlTemplate{
     constructor(playerObj){
         //The Object the user will be able to control
         this.playerObj = playerObj;
@@ -77,7 +77,7 @@ class UserControl{
 }
 //The controller class
 class GameTemplate{
-    constructor(gameName, gameInterface, userInterfaceExt, graphicsExt, gameLogicExt){
+    constructor(gameName, gameInterface, userInterfaceExt, graphicsExt, gameLogicExt, userControlExt){
         this.gameName = gameName;
         //gameInterface would be the type of extension to GameInterface Template - Taitt
         //Probably link interface to a CSS File? - Taitt
@@ -89,6 +89,7 @@ class GameTemplate{
         //Game Logic Extension
         this.gameLogicExt = gameLogicExt;
         //User Controls Extension
+        this.userControlExt = userControlExt;
     }
     /*
     savesEdit(){
@@ -104,18 +105,51 @@ class GameTemplate{
 //Extenstions and all the assistant Classes are used purely for keeping development neat and tidy while also allowing for further modularity
 //If you are unable to implement already existing code as well, you can ignore the extension Classes.
 
+class PlayerObj1 extends PlayerObjTemplate{
+    //Insert code here.
+}
 
+class Obj1 extends ObjectTemplate{
+    //Insert Code here.
+}
+
+class UI1 extends UserInterfaceTemplate{
+    //Insert Code Here.
+}
+
+class Graphics1 extends GraphicsTemplate{
+    graphicsGeneration(){
+        //Insert Code Here
+    }
+    //Insert Code Here
+}
+
+class GameLogic1 extends GameLogicTemplate{
+    //Insert Code Here
+}
 
 class Game1 extends GameTemplate{
     //This is an example for testing - Taitt Estes
     //Needed let vars here
-    userControl(){
-        //Insert Code Here.
-    }
     gameLoop(){
         //Insert needed "let" variables here for game functionality, then run the loop. - Taitt
         while(true){
             //Insert Code Here.
+            return;
         }
     }
+}
+
+
+//Just another example.
+const thisPlayerObj = new PlayerObj1(null,null,null,null);
+const thisObj = new Obj1(null,null,null,null,null);
+const thisUI = new UI1(null);
+const thisGraphics = new Graphics1(null, thisPlayerObj, thisObj);
+const thisGameLogic = new GameLogic1(thisPlayerObj, thisObj);
+const thisUserControl = new UserControlTemplate(thisPlayerObj);
+const thisGame = new Game1("NewGame","InsertCSS.css", thisUI, thisGraphics, thisGameLogic, thisUserControl);
+
+function startGame(){
+    thisGame.gameLoop();
 }
