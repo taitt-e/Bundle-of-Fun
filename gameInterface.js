@@ -164,5 +164,11 @@ const thisGameLogic = new GameLogic1(thisPlayerObj, thisObj);
 const thisGame = new Game1("NewGame","InsertCSS.css", thisUI, thisGraphics, thisGameLogic, thisUserControl);
 
 function startGame(){
-    thisGame.gameLoop();
+    //Added Humorous error message.
+    try{
+        thisGame.gameLoop();
+    }
+    catch(err){
+        alert("Oops! Javascript Machine broke! We apologize for the error: " + err.message + ". Please contact an administrator or refresh :).")
+    }
 }
