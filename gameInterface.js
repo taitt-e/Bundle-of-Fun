@@ -21,7 +21,7 @@ class GameInterfaceTemplate{
 */
 //"Base" Classes applied in "Assistant" CLasses
 class PlayerObjTemplate{
-    //Needed constructor to function.
+    //Needed constructor to function. - Taitt
     constructor(x,y,dx,dy, graphicConst){
         this.x = x;
         this.y = y;
@@ -31,7 +31,7 @@ class PlayerObjTemplate{
     }
 }
 class ObjectTemplate{
-    //Needed Constructor to function
+    //Needed Constructor to function - Taitt
     constructor(x,y,dx,dy, graphicConst){
         this.x = x;
         this.y = y;
@@ -40,11 +40,12 @@ class ObjectTemplate{
         this.graphicConst = graphicConst;
     }
 }
-//"Assistant" Classes used by the controller Class.
+//"Assistant" Classes used by the controller Class. - Taitt
 class UserInterfaceTemplate{
-    constructor(gameInterface){
-        //Used to stylize the user interface.
+    constructor(gameInterface, playerObj){
+        //Used to stylize the user interface. - Taitt
         this.userInterface = gameInterface;
+        this.playerObj = playerObj;
     }
     interfaceControl(){
         throw new Error("Abstract Method has no implementation");
@@ -52,9 +53,9 @@ class UserInterfaceTemplate{
 }
 class GraphicsTemplate{
     constructor(gameInterface, playerObj, object){
-        //Used to stylize the graphics
+        //Used to stylize the graphics - Taitt
         this.gameInterface = gameInterface;
-        //Needed Objects for game to function.
+        //Needed Objects for game to function. - Taitt
         this.playerObj = playerObj;
         this.object = object;
     }
@@ -64,20 +65,14 @@ class GraphicsTemplate{
 }
 class GameLogicTemplate{
     constructor(playerObj, object){
-        //Needed objects for game to function
+        //Needed objects for game to function - Taitt
         this.playerObj = playerObj;
         this.object = object;
     }
 }
-class UserControlTemplate{
-    constructor(playerObj){
-        //The Object the user will be able to control
-        this.playerObj = playerObj;
-    }
-}
 //The controller class
 class GameTemplate{
-    constructor(gameName, gameInterface, userInterfaceExt, graphicsExt, gameLogicExt, userControlExt){
+    constructor(gameName, gameInterface, userInterfaceExt, graphicsExt, gameLogicExt){
         this.gameName = gameName;
         //gameInterface would be the type of extension to GameInterface Template - Taitt
         //Probably link interface to a CSS File? - Taitt
@@ -89,7 +84,6 @@ class GameTemplate{
         //Game Logic Extension
         this.gameLogicExt = gameLogicExt;
         //User Controls Extension
-        this.userControlExt = userControlExt;
     }
     /*
     savesEdit(){
@@ -101,9 +95,9 @@ class GameTemplate{
     }
 }
 
-//Extension Examples
+//Extension Examples - Taitt
 //Extenstions and all the assistant Classes are used purely for keeping development neat and tidy while also allowing for further modularity
-//If you are unable to implement already existing code as well, you can ignore the extension Classes.
+//If you are unable to implement already existing code as well, you can ignore the extension Classes. - Taitt
 
 class PlayerObj1 extends PlayerObjTemplate{
     //Insert code here.
@@ -115,6 +109,26 @@ class Obj1 extends ObjectTemplate{
 
 class UI1 extends UserInterfaceTemplate{
     //Insert Code Here.
+    //This is just a sample, but many commands can be made here for interactions with HTML. - Taitt
+    interfaceControl(){
+    }
+    //This will be for the user's Keyboard, allowing multiple key inputs - Taitt
+    userControl(){
+        document.addEventListener('keydown', function(event) {
+            if(event.keyCode == 87) {
+                alert('W was pressed');
+            }
+            else if(event.keyCode == 83) {
+                alert('S was pressed');
+            }
+            else if(event.keyCode == 65){
+                alert('A was pressed');
+            }
+            else if(event.keyCode == 68){
+                alert('D was pressed');
+            }
+        });
+    }
 }
 
 class Graphics1 extends GraphicsTemplate{
@@ -144,10 +158,9 @@ class Game1 extends GameTemplate{
 //Just another example.
 const thisPlayerObj = new PlayerObj1(null,null,null,null);
 const thisObj = new Obj1(null,null,null,null,null);
-const thisUI = new UI1(null);
+const thisUI = new UI1(null, thisPlayerObj);
 const thisGraphics = new Graphics1(null, thisPlayerObj, thisObj);
 const thisGameLogic = new GameLogic1(thisPlayerObj, thisObj);
-const thisUserControl = new UserControlTemplate(thisPlayerObj);
 const thisGame = new Game1("NewGame","InsertCSS.css", thisUI, thisGraphics, thisGameLogic, thisUserControl);
 
 function startGame(){
