@@ -1,10 +1,11 @@
-<!DOCTYPE html> 
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Game Login</title>
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="login.js"></script>
 </head>
 
@@ -12,18 +13,38 @@
   <main id="main">
     <h1>Login</h1>
     
+    <div id="login-error-message-box">
+      <p id="login-error-message">Invalid username <span id="error-message-line2">and/or password</span></p>
+    </div>
+    
     <form id="login">
-      <div>
-        <input type="text" id="username" class="login-form" placeholder= "Username">
-      </div>
-      <div>
-        <input type="password" id="password-field" class="login-form" placeholder="Password">
-      </div>
-      <div>
-        <input type="submit" id="login-submit">
-      </div>
-      </form>
-  
+      <input type="text" id="username" class = "login-form" placeholder= "Username">
+      <input type="password" name="password" id="password-field" class= "login-form" placeholder="Password">
+      <input type= "submit"  value= "Login" id="login-"> 
+      <input type = "checkbox" id = "rememberme" onlick = "setcookie()">Remember Me
+    </form>
+
+    <script type = "text/javascript">
+   
+   
+   function setcookie(){
+      var user = document.getElemenentById('username').value;
+      var pass = document.getElementById('password').value;
+      document.cookie = "username" + user + ";path=/";
+      document.cookie = "password" + pass + ";path=/";
+      }
+
+
+    function getCookie(cookieName){
+      console.log(document.cookie);
+      var username = getCookie('username');
+      var password = getCookie('password');
+      document.getElementById('username').value = user;
+      document.getElementById('password').value = password;
+    }
+
+
+    </script>
   </main>
 </body>
 
