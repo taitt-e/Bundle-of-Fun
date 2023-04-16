@@ -37,7 +37,8 @@ loginButton.onclick = function(){
 
 
 //Cookies are not functioning in my browser or in JSFiddle, can someone else check and see if cookies work for local pages on their browser? - Taitt
-//Or check and see if there's something wrong with the code.
+//Or check and see if there's something wrong with the code. - Taitt
+//Source for problem: https://stackoverflow.com/questions/8105135/cannot-set-cookies-in-javascript 
 function setcookie(x,y){
     //let d = new Date();
     //d.setTime(d.getTime() + 1000 * 60 * 60 * 24 * 30);
