@@ -35,13 +35,16 @@ loginButton.onclick = function(){
     }
 }
 
+
+//Cookies are not functioning in my browser or in JSFiddle, can someone else check and see if cookies work for local pages on their browser? - Taitt
+//Or check and see if there's something wrong with the code.
 function setcookie(x,y){
-    let d = new Date();
-    d.setTime(d.getTime() + 1000 * 60 * 60 * 24 * 30);
+    //let d = new Date();
+    //d.setTime(d.getTime() + 1000 * 60 * 60 * 24 * 30);
     //Remembers for 30 days.
     let expires = "expires=";
-    document.cookie = "username=" + x + expires + d;
-    document.cookie = "password=" + y + expires + d;
+    document.cookie = "username=" + x + expires + ";";
+    document.cookie = "password=" + y + expires + ";";
 }
 
 //The following code was received from W3Schools at this link: https://www.w3schools.com/js/js_cookies.asp - Taitt
