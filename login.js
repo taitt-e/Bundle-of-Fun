@@ -2,6 +2,10 @@
 const loginButton = document.getElementById("login-submit");
 const login = document.getElementById("login"); 
 var loginErrorMsg = "Invalid Credentials. Try Again.";
+var user = document.getElemenentById('username').value;
+var pass = document.getElementById('password').value;
+var username;
+var password;
 
 //Login Button Function, for now checks if their user and pass is admin then allows login. - Taitt
 loginButton.onclick = function(){
@@ -25,6 +29,19 @@ loginButton.onclick = function(){
     } else {
         alert(loginErrorMsg);
     }
+}
+
+function setcookie(){
+    username = getCookie('username');
+    password = getCookie('password');
+    document.cookie = "username" + user + ";path=/";
+    document.cookie = "password" + pass + ";path=/";
+}
+
+function getCookie(cookieName){
+    console.log(document.cookie);
+    document.getElementById('username').value = user;
+    document.getElementById('password').value = password;
 }
 
 //Add a separate register function here that writes to the file then logs them in - Taitt

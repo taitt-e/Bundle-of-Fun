@@ -23,28 +23,6 @@
       <input type= "submit"  value= "Login" id="login-"> 
       <input type = "checkbox" id = "rememberme" onlick = "setcookie()">Remember Me
     </form>
-
-    <script type = "text/javascript">
-   
-   
-   function setcookie(){
-      var user = document.getElemenentById('username').value;
-      var pass = document.getElementById('password').value;
-      document.cookie = "username" + user + ";path=/";
-      document.cookie = "password" + pass + ";path=/";
-      }
-
-
-    function getCookie(cookieName){
-      console.log(document.cookie);
-      var username = getCookie('username');
-      var password = getCookie('password');
-      document.getElementById('username').value = user;
-      document.getElementById('password').value = password;
-    }
-
-
-    </script>
   </main>
 </body>
 
