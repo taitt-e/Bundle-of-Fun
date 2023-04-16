@@ -2,23 +2,29 @@
 const loginButton = document.getElementById("login-submit");
 const login = document.getElementById("login"); 
 var loginErrorMsg = "Invalid Credentials. Try Again.";
+var rememberMe = document.getElementById("rememberMe");
 
 //Login Button Function, for now checks if their user and pass is admin then allows login. - Taitt
 loginButton.onclick = function(){
     //Pick up work here again some time later, Data needs hidden & redirection to gameSelect needs fixed. - Taitt
     let userInput = login.elements.item(0).value;
-    let passInput = login.elements.item(1).value;
-
+    let passInput = login.elements.item(2).value;
     //document.getElementById("login").elements.item(0).value; Template to follow - Taitt
 
-    setcookie(userInput, passInput);
+    if(rememberMe){
+        setcookie(userInput, passInput);
 
     //Added for testing purposes. - Taitt
-    console.log("Username is: " + getCookie("username"));
-    console.log("Password is: " + getCookie("password"));
+        let testx = getCookie("username");
+        let testy = getCookie("password");
+        console.log("Username is: " + testx);
+        console.log("Password is: " + testy);
+    }else{
+        console.log("Failure.");
+    }
 
     //Read from the database file here to see if their username and password are in the database - Taitt
-    if (user == "admin" && pass == "admin") {
+    if (userInput == "admin" && passInput == "admin") {
         alert("You have successfully logged in.");
         
         //Redirect to gameSelect.html - Taitt
@@ -30,8 +36,12 @@ loginButton.onclick = function(){
 }
 
 function setcookie(x,y){
-    document.cookie = "username=" + x + ";path=/";
-    document.cookie = "password=" + y + ";path=/";
+    let d = new Date();
+    d.setTime(d.getTime() + 1000 * 60 * 60 * 24 * 30);
+    //Remembers for 30 days.
+    let expires = "expires=";
+    document.cookie = "username=" + x + expires + d;
+    document.cookie = "password=" + y + expires + d;
 }
 
 //The following code was received from W3Schools at this link: https://www.w3schools.com/js/js_cookies.asp - Taitt
