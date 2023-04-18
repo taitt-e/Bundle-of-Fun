@@ -40,7 +40,7 @@ class ObjectTemplate{
         this.graphicConst = graphicConst;
     }
 }
-//"Assistant" Classes used by the controller Class. - Taitt
+//"Assistant" Classes used by the Model View Controller Class. - Taitt
 class UserInterfaceTemplate{
     constructor(gameInterface, playerObj){
         //Used to stylize the user interface. - Taitt
@@ -70,7 +70,7 @@ class GameLogicTemplate{
         this.object = object;
     }
 }
-//The controller class
+//The Model View Controller class
 class GameTemplate{
     constructor(gameName, gameInterface, userInterfaceExt, graphicsExt, gameLogicExt){
         this.gameName = gameName;
