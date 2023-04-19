@@ -9,7 +9,7 @@ passwords[0] = "admin";
 function addNewUserToDB(){
     var newUsername = "";
     var newPassword = "";
-    let userForm    = document.getElementById("form1");
+    let userForm    = document.getElementById("userForm");
 
     //Retrieve user credentials from the form submission
     newUsername = userForm.elements["usr"].value;
