@@ -13,6 +13,7 @@ function validatePassword(form){
         alert("Password Match!");
 	addNewUserToDB();
         return true;
+    }
 }
 //This came from database ^^ - Taitt
 const shift = 14;
