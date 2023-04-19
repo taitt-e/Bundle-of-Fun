@@ -93,6 +93,15 @@ class GameTemplate{
     gameLoop(){
         throw new Error("Abstract Method has no implementation");
     }
+    startGame(){
+        //Added Humorous error message.
+        try{
+            gameLoop();
+        }
+        catch(err){
+            alert("Oops! Javascript Machine broke! We apologize for the error: " + err.message + ". Please contact an administrator or refresh :).")
+        }
+}
 }
 
 //Extension Examples - Taitt
@@ -162,13 +171,3 @@ const thisUI = new UI1(null, thisPlayerObj);
 const thisGraphics = new Graphics1(null, thisPlayerObj, thisObj);
 const thisGameLogic = new GameLogic1(thisPlayerObj, thisObj);
 const thisGame = new Game1("NewGame","InsertCSS.css", thisUI, thisGraphics, thisGameLogic, thisUserControl);
-
-function startGame(){
-    //Added Humorous error message.
-    try{
-        thisGame.gameLoop();
-    }
-    catch(err){
-        alert("Oops! Javascript Machine broke! We apologize for the error: " + err.message + ". Please contact an administrator or refresh :).")
-    }
-}
