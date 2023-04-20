@@ -22,6 +22,13 @@ class AdminAccount extends User{
     }
 }
 
+//Admin account
+let admin = new AdminAccount("admin", "admin");
+accountsArray[0] = admin;
+
+let user1 = new UserAccount("user1", encryptPassword(shift, "password1"));
+accountsArray[1] = user1;
+
 function addNewUserToDB(){
     var newUsername = "";
     var newPassword = "";
