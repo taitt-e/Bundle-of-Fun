@@ -42,3 +42,29 @@ function addNewUserToDB(newUser){
     //Alerting the change until admin functionality is added
     alert(adminLog);
 }
+
+//Takes login attempt info from the login page and checks if it matches a users credentials in the database
+function validateUserInDB(usernameToCheck, passwordToCheck){
+    const shift = 14;
+
+    //Check for admin account
+    if((usernameToCheck == "admin") && (passwordToCheck == "admin")){
+        return true;
+    } else{ //Check for user account
+        for(let i = 0; i<accountsArray.length; i++){
+            //If the username and password match the attempt
+            if((accountsArray[i].username == usernameToCheck) && (accountsArray[i].password == encryptPassword(shift, passwordToCheck))){
+                return true;  //The login info is correct
+            }
+        }
+    }
+    return false; //The login info is incorrect
+}
+
+//Check if the user is an admin. Only checks for the "admin" username right now.
+function isAdmin(selectedUser) {
+    if(selectedUser.username == "admin"){
+        return true;
+    }
+    return false;
+}
