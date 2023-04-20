@@ -1,5 +1,6 @@
 //Arrays of usernames/passwords
 const accountsArray = [];
+const fakeDataDB    = [];
 const statsArray    = [];
 const adminLog      = [];
 
