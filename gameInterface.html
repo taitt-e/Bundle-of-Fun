@@ -1,1 +1,19 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Breakout HTML Game</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="gameInterface.css">
+ 
+</head>
+<body>
+    <div>
+        <header id="instructions">Press start to launch the ball</header>
+        <button onclick = "location.reload()">Restart Game</button> 
+        <button type = "button" onclick = "pause()">Pause Game</button> 
+    </div>
+    <canvas width="400" height="500" id="game"></canvas>
+    <script src="gameInterface.js"> 
+</script>
+</body>
+</html>
