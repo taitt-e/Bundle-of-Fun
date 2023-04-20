@@ -1,5 +1,6 @@
 //Arrays of usernames/passwords
 const accountsArray = [];
+const statsArray    = [];
 const adminLog      = [];
 
 //Normal user
@@ -67,4 +68,24 @@ function isAdmin(selectedUser) {
         return true;
     }
     return false;
+}
+
+//This function will be used in later updates to allow for game stats to be updated.
+//The method will be called with the user to update stats for as well as integers representing how much changed.
+//For example, updateGameStats(accountsArray[1], 1, 0, 0) will add 1 to the amount of levels completed only.
+function updateGameStats(user, levelsCompleted, checkPoints, score){
+    //Updating completed levels
+    if(levelsCompleted > 0){
+        user.userStats[0] += levelsCompleted;
+    }
+
+    //Updating checkpoints
+    if(checkPoints > 0){
+        user.userStats[1] += checkPoints;
+    }
+
+    //Updating highscore (if the new score is bigger than the previous highscore)
+    if(user.userStats[2] < score){
+        user.userStats[2] = score;
+    }
 }
