@@ -11,7 +11,6 @@ function validatePassword(form){
         return false;
     }else{
         alert("Password Match!");
-	addNewUserToDB();
         return true;
     }
 }
@@ -26,27 +25,24 @@ class User{
     this.password = password;
     this.encryptedPassword = encryptedPassword;
   }
-  
-  encryptPassword(shiftKey){
-  	let encryptedPassword = [];
-    let code; 
-    
-    for(let i = 0; i < this.password.length; i++){
-    	code = this.password.charCodeAt(i) + shiftKey;
-      while(code > 122){
-      	code = (code - 122) + 96;
-      }
-      encryptedPassword.push(String.fromCharCode(code));
-    }
-    
-    this.encryptedPassword = encryptedPassword.join('');
-    
-    return this.encryptedPassword;
-    
-  }
-
 }
 
+function encryptPassword(shiftKey, password){
+  let encryptedPassword = [];
+  let code;
+  
+  for(let i = 0; i < password.length; i++){
+    code = password.charCodeAt(i) + shiftKey;
+    while(code > 122){
+      code = (code - 122) + 96;
+    }
+    encryptedPassword.push(String.fromCharCode(code));
+  }
+  
+  encryptedPassword = encryptedPassword.join('');
+  
+  return encryptedPassword;
+}
 
 //main
 var newUser;
