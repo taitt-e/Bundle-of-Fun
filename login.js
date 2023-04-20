@@ -25,6 +25,7 @@ loginButton.onclick = function(){
 
     //Read from the database file here to see if their username and password are in the database - Taitt
     if (userInput == "admin" && passInput == "admin") {
+    //if (validateUserInDB(user, pass)) {
         alert("You have successfully logged in.");
         
         //Redirect to gameSelect.html - Taitt
@@ -34,7 +35,6 @@ loginButton.onclick = function(){
         alert(loginErrorMsg);
     }
 }
-
 
 //Cookies are not functioning in my browser or in JSFiddle, can someone else check and see if cookies work for local pages on their browser? - Taitt
 //Or check and see if there's something wrong with the code. - Taitt
