@@ -1,10 +1,26 @@
 //Arrays of usernames/passwords
-const usernames = [];
-const passwords = [];
+const accountsArray = [];
 
-//Admin account
-usernames[0] = "admin";
-passwords[0] = "admin";
+//Normal user
+class UserAccount extends User{
+    constructor(username, password) {
+        super();
+        this.username = username;
+        this.password = password;
+
+        //For now, userStats[0] = completed levels, userStats[1] = checkpoints, userStats[2] = highscore
+        this.userStats = [0, 0, 0];
+    }
+}
+
+//Admin
+class AdminAccount extends User{
+    constructor(username, password) {
+        super();
+        this.username = username;
+        this.password = password;
+    }
+}
 
 function addNewUserToDB(){
     var newUsername = "";
