@@ -46,16 +46,14 @@ function encryptPassword(shiftKey, password){
 
 //main
 var newUser;
-var UserInformation = [];
 
 document.getElementById('submitBtn').addEventListener('click', validateUser);
 
 
-function validateUser(){
-
-	let username = document.getElementById('usr').value;
-	let password = document.getElementById('pwd').value;
-	let confirmPassword = document.getElementById('pwd_confirm').value;
+function validateUser(form){
+	let username        = form.usr.value;
+	let password        = form.pwd.value;
+	let confirmPassword = form.pwd_confirm.value;
 
   if(isStringEmpty(username)){
     displayErrorMessage("Please enter a username.");  
@@ -68,10 +66,8 @@ function validateUser(){
   }else if(doesNotMatch(password, confirmPassword)){
     displayErrorMessage("Password and Confirm Password must match");
   }else{
-  	createNewUser(username, password, confirmPassword, " ");
-  	newUser.encryptPassword(shift);
-    UserInformation.push([newUser]);
-    
+  	let newUser  = new User(username, password, confirmPassword, encryptPassword(shift, password));
+	addNewUserToDB(newUser);
   } 
 }
 
@@ -97,9 +93,4 @@ function displayErrorMessage(message){
   document.getElementById('errMsg').innerHTML = " ";
  
   document.getElementById('errMsg').innerHTML = message;
-}
-
-function createNewUser(username, password, confirmPassword){
-
-	newUser = new User(username, password, confirmPassword);
 }
