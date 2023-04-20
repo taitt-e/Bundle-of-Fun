@@ -11,7 +11,6 @@ function validatePassword(form){
         return false;
     }else{
         alert("Password Match!");
-	addNewUserToDB();
         return true;
     }
 }
@@ -26,40 +25,35 @@ class User{
     this.password = password;
     this.encryptedPassword = encryptedPassword;
   }
-  
-  encryptPassword(shiftKey){
-  	let encryptedPassword = [];
-    let code; 
-    
-    for(let i = 0; i < this.password.length; i++){
-    	code = this.password.charCodeAt(i) + shiftKey;
-      while(code > 122){
-      	code = (code - 122) + 96;
-      }
-      encryptedPassword.push(String.fromCharCode(code));
-    }
-    
-    this.encryptedPassword = encryptedPassword.join('');
-    
-    return this.encryptedPassword;
-    
-  }
-
 }
 
+function encryptPassword(shiftKey, password){
+  let encryptedPassword = [];
+  let code;
+  
+  for(let i = 0; i < password.length; i++){
+    code = password.charCodeAt(i) + shiftKey;
+    while(code > 122){
+      code = (code - 122) + 96;
+    }
+    encryptedPassword.push(String.fromCharCode(code));
+  }
+  
+  encryptedPassword = encryptedPassword.join('');
+  
+  return encryptedPassword;
+}
 
 //main
 var newUser;
-var UserInformation = [];
 
 document.getElementById('submitBtn').addEventListener('click', validateUser);
 
 
-function validateUser(){
-
-	let username = document.getElementById('usr').value;
-	let password = document.getElementById('pwd').value;
-	let confirmPassword = document.getElementById('pwd_confirm').value;
+function validateUser(form){
+	let username        = form.usr.value;
+	let password        = form.pwd.value;
+	let confirmPassword = form.pwd_confirm.value;
 
   if(isStringEmpty(username)){
     displayErrorMessage("Please enter a username.");  
@@ -72,10 +66,8 @@ function validateUser(){
   }else if(doesNotMatch(password, confirmPassword)){
     displayErrorMessage("Password and Confirm Password must match");
   }else{
-  	createNewUser(username, password, confirmPassword, " ");
-  	newUser.encryptPassword(shift);
-    UserInformation.push([newUser]);
-    
+  	let newUser  = new User(username, password, confirmPassword, encryptPassword(shift, password));
+	addNewUserToDB(newUser);
   } 
 }
 
@@ -101,9 +93,4 @@ function displayErrorMessage(message){
   document.getElementById('errMsg').innerHTML = " ";
  
   document.getElementById('errMsg').innerHTML = message;
-}
-
-function createNewUser(username, password, confirmPassword){
-
-	newUser = new User(username, password, confirmPassword);
 }
