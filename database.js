@@ -89,3 +89,19 @@ function updateGameStats(user, levelsCompleted, checkPoints, score){
         user.userStats[2] = score;
     }
 }
+
+function createFakeUser(){
+    fakeUser = createFakeData();
+    fakeDataDB.push(fakeUser);    //Add to fake data database
+}
+
+//Create a fake user/data for testing
+function createFakeData(){
+    let user = new UserAccount("fake_User", "password");
+
+    fakeUser.userStats[0] = Math.floor(Math.random() * 11);      //Integer between 0 and 10
+    fakeUser.userStats[1] = Math.floor(Math.random() * 21);      //Integer between 0 and 20
+    fakeUser.userStats[2] = Math.floor(Math.random() * 1001);    //Integer between 0 and 1000
+
+    return user;
+}
