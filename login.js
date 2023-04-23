@@ -11,17 +11,17 @@ loginButton.onclick = function(){
     let passInput = login.elements.item(2).value;
     //document.getElementById("login").elements.item(0).value; Template to follow - Taitt
 
-    if(rememberMe){
-        setcookie(userInput, passInput);
+    //if(rememberMe){
+        //setcookie(userInput, passInput);
 
     //Added for testing purposes. - Taitt
-        let testx = getCookie("username");
-        let testy = getCookie("password");
-        console.log("Username is: " + testx);
-        console.log("Password is: " + testy);
-    }else{
-        console.log("Failure.");
-    }
+        //let testx = getCookie("username");
+        //let testy = getCookie("password");
+        //console.log("Username is: " + testx);
+        //console.log("Password is: " + testy);
+    //}else{
+    //    console.log("Failure.");
+    //}
 
     //Read from the database file here to see if their username and password are in the database - Taitt
     if (userInput == "admin" && passInput == "admin") {
@@ -29,7 +29,7 @@ loginButton.onclick = function(){
         alert("You have successfully logged in.");
         
         //Redirect to gameSelect.html - Taitt
-        window.location.replace("gameSelect.html");
+        window.location.replace("gameInterface.html");
         return false;
     } else {
         alert(loginErrorMsg);
